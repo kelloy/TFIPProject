@@ -1,0 +1,24 @@
+<h1 class="has-text-centered is-primary has-background-success-light py-4 my-2 is-size-4">Need some local fare food inspirations?</h1>
+<h2 class="py-2 my-2 is-size-5">Please Login</h2>
+<form [formGroup] = "form" (ngSubmit)="login()" class = "form">
+  <table>
+    <tr>
+      <td><label for = "username" class = "label">Username:  </label></td>
+      <td><input type = "text" formControlName = "username" class="input is-hovered"></td>
+    </tr>
+    <tr>
+      <br>
+    </tr>
+    <tr>
+      <td><label for = "password" class = "label">Password:  </label></td>
+      <td><input type = "password" formControlName = "password" class="input is-hovered"></td>
+    </tr>
+    <button type = "submit" [disabled] = "!form.valid" class = "button is-link">Go</button>
+  </table>
+</form>
+<br>
+<div>
+<button type = "button" [routerLink]="['/registration']" class = "button" >Add New User</button>
+</div>
+<br>
+<button type = "button" [routerLink]="['/form']" class = "button">Feedback</button>

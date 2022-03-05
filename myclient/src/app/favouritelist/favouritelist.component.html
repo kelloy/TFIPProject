@@ -1,0 +1,17 @@
+<h1 class = "is-size-2 has-text-centered">Here is your saved list</h1>
+<section class = "section">
+<div *ngIf="favouritelist.length>0" class="select is-multiple">
+  <select multiple size="8">
+    <option *ngFor="let favorite of favouritelist" (click) = "goFood(favorite.uuid,this.username)">
+      {{favorite.stallName}}
+    </option>
+  </select>
+</div>
+</section>
+
+<div *ngIf ="favouritelist.length <=0">
+  <span>You have no favourite list please go search and add</span>
+</div>
+
+
+<button type = "button" (click)="goSearch()" class = "button">Click To Search For Other Food</button>

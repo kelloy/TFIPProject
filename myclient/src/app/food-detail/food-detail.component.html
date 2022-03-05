@@ -1,0 +1,27 @@
+<div>
+  <h1 class = "is-size-2 has-text-weight-bold has-text-centered is-primary has-background-success-light py-4 my-2 is-size-4">{{food.name}}</h1>
+  <h2 class = "is-size-5 box">{{food.introduction}}</h2>
+  <h3>{{food.block}} {{food.floorNumber}} {{food.unitNumber}} {{food.streetName}} Singapore {{food.postalCode}}</h3>
+  <h3>Average Rating: {{food.rating}}</h3>
+  <h2>Reviews</h2>
+  <div class = "content box">
+    <ol type ="1">
+    <li *ngFor="let review of food.reviews" class = "has-background-light">{{review.replace('"',"")}}</li>
+    </ol>
+  </div>
+  <div>
+    <button class="button is-primary" type = "button" (click) = goToMap(food.latitude,food.longitude);>Map and Direction</button>
+  </div>
+  <br>
+  <div>
+    <button class = "button is-primary" type = "button" (click) = saveFood(this.food)>Save</button>
+  </div>
+  <br>
+  <div>
+    <button class="button is-warning" type = "button" onclick="history.go(-1)">Go Back To Previous</button>
+  </div>
+  <br>
+  <div>
+    <button class="button is-danger" type = "button" [routerLink]="['/']">Go Back Home</button>
+  </div>
+  </div>
