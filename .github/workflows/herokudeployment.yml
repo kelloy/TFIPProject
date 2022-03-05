@@ -1,11 +1,12 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI with Maven
+name: Deploy
 
 on:
   push:
-    branches: [ release ]
+    branches: 
+      -release
 
 jobs:
   build:
@@ -25,4 +26,5 @@ jobs:
         heroku_email: ${{secrets.HEROKU_EMAIL}}
         # The appname to use for deploying/updating
         heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+        branch: "release"
    
