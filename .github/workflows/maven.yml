@@ -7,6 +7,8 @@ on:
   push:
     branches: [ release ]
     paths: server
+  workflow_dispatch:
+    
 
 jobs:
   build:
