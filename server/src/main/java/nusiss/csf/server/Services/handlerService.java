@@ -138,6 +138,7 @@ public class handlerService {
         ff.setUsername(username);
         ff.setUuid(uuid);
         ff.setStallName(stallName);
+        ff.setUserId(userId);
         return ff;
 
     }

@@ -35,5 +35,13 @@ export class FavouritelistComponent implements OnInit {
     this.router.navigate(['/food', username,uuid])
   }
 
+  delete(favourite:favourite){
+    console.info(favourite)
+    this.foodSvc.deleteFood(favourite).then(result=>{
+      console.info(result)
+    })
+    this.router.navigate(['/search',this.username])
+  }
+
 
 }

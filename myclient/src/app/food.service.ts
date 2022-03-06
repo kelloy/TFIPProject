@@ -42,4 +42,9 @@ export class foodService{
 
   }
 
+  deleteFood(favourite:favourite): Promise<string>{
+    const headers = new HttpHeaders().set("Content-Type","application/json")
+    return lastValueFrom(this.http.post<string>(`/api/food/fooddetails/delete`,JSON.stringify(favourite),{headers}))
+  }
+
 }

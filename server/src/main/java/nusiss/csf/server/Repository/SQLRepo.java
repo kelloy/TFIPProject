@@ -84,6 +84,12 @@ public class SQLRepo {
         
     } 
 
+    public Boolean deleteFood(favouriteFood ff){
+        int foodDeleted = template.update(SQL.SQL_DELETE_FAV_FOOD,ff.getUuid(),ff.getUserId());
+        System.out.println(foodDeleted);
+        return foodDeleted > 0;
+    }
+
 
     
 }

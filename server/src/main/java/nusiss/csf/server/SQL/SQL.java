@@ -11,5 +11,6 @@ public class SQL {
     public static final String SQL_SAVE_FOOD = "insert into favourite(stallName,uuid,userId,username) values (?,?,?,?)";
     public static final String SQL_CHECK_ENTRY = "select count(*) as count from favourite where uuid = ?";
     public static final String SQL_SAVE_FEEDBACK = "insert into feedbacks(username,email,contactNumber,comment) values (?,?,?,?)";
+    public static final String SQL_DELETE_FAV_FOOD = "delete from favourite where uuid = ? and userId = ?";
     
 }

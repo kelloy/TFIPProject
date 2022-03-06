@@ -40,7 +40,7 @@ const appRoute = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoute,{useHash:true}),
+    RouterModule.forRoot(appRoute, {useHash:true}),
     HttpClientModule
   ],
   providers: [foodService],

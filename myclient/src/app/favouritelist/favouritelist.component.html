@@ -1,11 +1,9 @@
 <h1 class = "is-size-2 has-text-centered">Here is your saved list</h1>
 <section class = "section">
 <div *ngIf="favouritelist.length>0" class="select is-multiple">
-  <select multiple size="8">
-    <option *ngFor="let favorite of favouritelist" (click) = "goFood(favorite.uuid,this.username)">
-      {{favorite.stallName}}
-    </option>
-  </select>
+    <div *ngFor="let favorite of favouritelist;let i = index" (click) = "goFood(favorite.uuid,this.username)">
+      {{favorite.stallName}}  <button type = "button" (click) = delete(favorite)>x</button>
+    </div>
 </div>
 </section>
 

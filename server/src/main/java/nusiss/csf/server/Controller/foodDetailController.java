@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import nusiss.csf.server.Repository.SQLRepo;
 import nusiss.csf.server.Services.foodServices;
@@ -43,8 +44,16 @@ public class foodDetailController {
         repo.saveFood(ff);
         JsonObject response = ff.toJson(ff);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(response.toString());
+    }
 
-
-
+    @PostMapping(path = "delete", consumes= MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> deleteFood(@RequestBody String json){
+        System.out.println(json);
+        handlerService handler = new handlerService();
+        favouriteFood ff = new favouriteFood();
+        ff = handler.buildfavourite(json);
+        repo.deleteFood(ff);
+        JsonObject response = Json.createObjectBuilder().add("message","entry deleted").build();
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response.toString());
     }
 }
