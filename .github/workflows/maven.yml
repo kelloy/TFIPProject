@@ -3,7 +3,7 @@ name: Heroku Deployment
 on:
   push:
     branches: 'release'
-    paths: 'springboot'
+    paths: 'server'
 
 jobs:
   build:
