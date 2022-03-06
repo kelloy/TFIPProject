@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +40,7 @@ public class feedbackController {
         fb = handler.buildfb(json);
         System.out.println(fb);
         repo.saveFeedBack(fb);
-        JsonObject response = fb.toJson(fb);
+        JsonObject response = fb.toJson(fb); 
         email.sendEmail(fb.getEmail(),"Your Feedback",handler.emailString(fb));
         return ResponseEntity.status(HttpStatus.OK).body(response.toString());
         

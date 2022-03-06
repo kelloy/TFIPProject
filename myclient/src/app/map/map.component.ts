@@ -84,6 +84,8 @@ export class MapComponent implements OnInit {
 
     this.setRoutePolyline();
 
+    this.dr.setPanel(document.getElementById("floating-panel") as HTMLElement)
+
   })
 
 }

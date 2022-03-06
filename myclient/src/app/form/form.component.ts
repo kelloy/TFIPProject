@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { foodService } from '../food.service';
 import { feedback } from '../model';
 
@@ -13,7 +14,7 @@ export class FormComponent implements OnInit {
   form!: FormGroup;
   feedback!:feedback
 
-  constructor(private fb:FormBuilder, private foodSvc:foodService) { }
+  constructor(private fb:FormBuilder, private foodSvc:foodService, private router:Router) { }
 
   ngOnInit(): void {
     this.form = this.createForm()
@@ -33,6 +34,8 @@ export class FormComponent implements OnInit {
     const data = this.form.value as feedback
     this.foodSvc.sendFeedback(data).then(result=>{
       console.log(result)
+      alert("Thank you for your feedback")
+      this.router.navigate(['/'])
     }).catch(e => {
       console.log(e);
   });

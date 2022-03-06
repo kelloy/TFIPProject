@@ -33,8 +33,7 @@ export class RegistrationComponent implements OnInit {
     console.info(data);
     this.foodSvc.saveUserCredential(data)
     .then(result=>{
-      console.info(result)
-      this.form.reset()
+      alert("user registered! Thank you")
     }).catch(error=>{
       alert("email already exists, please login or use another name")
     })

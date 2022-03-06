@@ -1,9 +1,13 @@
 package nusiss.csf.server.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
 public class user {
+    private int userId;
     private String username;
     private String password;
     private String email;
@@ -14,6 +18,14 @@ public class user {
         this.password = password;
         this.email = email;
         this.contactNumber = contactNumber;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public user() {

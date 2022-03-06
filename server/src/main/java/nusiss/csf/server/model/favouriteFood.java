@@ -1,11 +1,15 @@
 package nusiss.csf.server.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
+@Document(collection = "favouriteFood")
 public class favouriteFood {
+    @Id
     private int userId;
     private String stallName;
     private String uuid;
@@ -30,7 +34,7 @@ public class favouriteFood {
     public favouriteFood() {
     }
 
-    public favouriteFood(String stallName, String uuid,int userId, String username) {
+    public favouriteFood(int userId, String uuid,String stallName, String username) {
         this.stallName = stallName;
         this.uuid = uuid;
         this.userId = userId;
